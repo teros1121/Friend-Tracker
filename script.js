@@ -1,17 +1,30 @@
 var password = "pass";
 var friends = ["Jacob", "Milly", "Etc"];
 
+//View is the
 function view(){
     friends1 = String(friends);
+    console.log(friends1)
     friends2 = friends1.replace(/,/g, "</br>");
-    document.getElementById("friends-names").innerHTML = friends2;
+    //document.getElementById("friends-names").innerHTML = friends2;
 
-    console.log("Process me!")
+    console.log("Process me!");
 
+    document.getElementById("friends-names").innerHTML = "";
+
+    document.getElementById("friends-names").innerHTML += "<ol>";
+    for (i = 0; i < friends.length; i++){
+      document.getElementById("friends-names").innerHTML += "<li>" + String(friends[i]) + " </li>";
+    }
+    document.getElementById("friends-names").innerHTML += "</ol>";
   //if(render == true){
     //menu();
   //}
 }
+
+window.addEventListener('load', function() {
+    view();
+});
 
 function add(){
   var new_friend_name = prompt("Enter your friend's name: ");
@@ -25,15 +38,20 @@ function add(){
 function remove(){
   var friend_to_remove = prompt("Current Friends: " + friends + " \n Enter the name of a friend you want to remove: ");
   temp_list = friends;
+  String(friend_to_remove);
   for(i = 0; i < friends.length; i++){
     if(friend_to_remove == friends[i]){
+      //friends now equal to all friends NOT EQUAL to the friends we want to remove!
+      //var friends = friends.filter( function(value, index, arr){ return value != friend_to_remove;});
       friends.splice(i, 1);
+      console.log(String(friends));
     }
-    view();
   }
 
+  view();
+
   //Render friends here
-document.getElementById("friends-names").innerHTML = friends;
+//document.getElementById("friends-names").innerHTML = friends;
   console.log(friends);
   //menu();
 }
