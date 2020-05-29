@@ -1,7 +1,19 @@
 var password = "pass";
 var friends = ["Jacob", "Milly", "Etc"];
 
+function render(){
+  document.getElementById("friends-names").innerHTML = "";
+
+  document.getElementById("friends-names").innerHTML += "<ol>";
+  for (i = 0; i < friends.length; i++){
+    document.getElementById("friends-names").innerHTML += "<li>" + String(friends[i]) + " - " + "<button onclick='remove_by_index("+i+", friends)'>x</button>" + " </li>";
+  }
+  document.getElementById("friends-names").innerHTML += "</ol>";
+}
+
 //View is the
+
+
 function view(){
     friends1 = String(friends);
     console.log(friends1)
@@ -10,17 +22,42 @@ function view(){
 
     console.log("Process me!");
 
-    document.getElementById("friends-names").innerHTML = "";
-
-    document.getElementById("friends-names").innerHTML += "<ol>";
-    for (i = 0; i < friends.length; i++){
-      document.getElementById("friends-names").innerHTML += "<li>" + String(friends[i]) + " </li>";
-    }
-    document.getElementById("friends-names").innerHTML += "</ol>";
+    render();
   //if(render == true){
     //menu();
   //}
 }
+
+//Homework due on 5/29/2020!
+//Write a function which takes in 1 int, 1 array
+//Splice that remove_by_index in the array_to_spice
+//Return the array that has been spliced
+
+//Example call:
+//var myA = ["A", "B", "C"];
+//console.log(myA); // ["A", "B", "C"]
+//var myRemoved = remove_by_index(1, myA);
+//console.log(myRemoved); // ["A", "C"];
+
+function remove_by_index(index_to_remove, array_to_splice){
+  //Use the args in the splice method
+  //var result_array = splice
+  for(i = 0; i < array_to_splice.length; i++){
+    if(String(i) == String(index_to_remove)){
+      console.log("Number Found");
+      array_to_splice.splice(i, 1);
+    }
+  }
+
+  return array_to_splice;
+  //RETURN
+  //THE ARRAY WITHOUT THE INDEX SPECIFIED
+  console.log(index_to_remove);
+  render();
+}
+
+var array1 = ["A", 1, "B", 2];
+
 
 window.addEventListener('load', function() {
     view();
@@ -43,7 +80,7 @@ function remove(){
     if(friend_to_remove == friends[i]){
       //friends now equal to all friends NOT EQUAL to the friends we want to remove!
       //var friends = friends.filter( function(value, index, arr){ return value != friend_to_remove;});
-      friends.splice(i, 1);
+      friends = remove_by_index(i, 1);
       console.log(String(friends));
     }
   }
