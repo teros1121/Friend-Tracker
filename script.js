@@ -46,14 +46,15 @@ function remove_by_index(index_to_remove, array_to_splice){
     if(String(i) == String(index_to_remove)){
       console.log("Number Found");
       array_to_splice.splice(i, 1);
+      view();
     }
   }
 
+  view();
   return array_to_splice;
   //RETURN
   //THE ARRAY WITHOUT THE INDEX SPECIFIED
   console.log(index_to_remove);
-  render();
 }
 
 var array1 = ["A", 1, "B", 2];

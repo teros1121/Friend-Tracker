@@ -4,11 +4,12 @@
   <style>
 
   .header{
-    font-size: 24px;
+    font-size: 34px;
     color: blue;
     background-color: #e8bc0c;
     font-family: sans-serif;
     padding: 2%;
+    margin-bottom: 5%;
   }
 
   body {
@@ -21,21 +22,32 @@
     color: white;
   }
 
+  #friends-names{
+    font-size: 40px;
+
+  }
+
+  .ui-btn{
+    color: white;
+    background-color: grey;
+    font-size: 20px;
+    margin-top: 2%
+  }
+
   </style>
 </head>
 <center>
 <div class = "header">
-Friend Tracker v1.0
+Friend Tracker v2.0
 </div>
 
-<button onclick="view();">View</button>
-<button onclick="add();">Add</button>
-<button onclick="remove();">Remove</button>
+
 
 <h1>Friends:</h1>
 
 <div id = "friends-names"></div>
 
+<button class= "ui-btn" onclick="add();">Add</button>
 
 </center>
 <div class = "footer">
